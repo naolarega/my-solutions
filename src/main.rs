@@ -9,5 +9,7 @@ fn main() {
 
     // codeforces::domino_piling::Solution::domino_piling();
 
-    hacker_rank::bubble_sort::Solution::bubble_sort();
+    // hacker_rank::bubble_sort::Solution::bubble_sort();
+
+    hacker_rank::insertion_sort::Solution::insertion_sort();
 }
