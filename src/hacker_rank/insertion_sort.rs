@@ -34,6 +34,10 @@ impl Solution {
                 return;
             }
         }
+
+        arr[0] = last_elem;
+
+        Self::print_arr(arr);
     }
 
     fn print_arr(arr: &[i32]) {
