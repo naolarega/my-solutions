@@ -11,5 +11,7 @@ fn main() {
 
     // hacker_rank::bubble_sort::Solution::bubble_sort();
 
-    hacker_rank::insertion_sort::Solution::insertion_sort();
+    // hacker_rank::insertion_sort::Solution::insertion_sort();
+
+    hacker_rank::counting_sort::Solution::counting_sort();
 }
