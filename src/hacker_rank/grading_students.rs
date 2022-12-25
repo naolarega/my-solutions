@@ -34,3 +34,15 @@ impl Solution {
         return next_multiple;
     }
 }
+
+#[cfg(test)]
+mod tests {
+    use super::*;
+
+    #[test]
+    fn test_grading_students() {
+        assert_eq!(
+            Solution::grading_students(&[73, 67, 38, 33]),
+            vec![75, 67, 40, 33])
+    }
+}

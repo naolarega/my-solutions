@@ -103,3 +103,17 @@ impl GameBoard {
             && self.board_dimension.width <= 16
     }
 }
+
+#[cfg(test)]
+mod tests {
+    use super::*;
+
+    #[test]
+    fn test_domino_piling() {
+        let mut game_board = GameBoard::new(BoardDimension {
+            length: 2,
+            width: 4
+        });
+        assert_eq!(game_board.max_dominos(), 4);
+    }
+}
