@@ -10,7 +10,7 @@ impl Solution {
 
         let mut sorted_words = Vec::with_capacity(word_hashmap.len());
 
-        sorted_words.resize(word_hashmap.len(), "");
+        sorted_words.resize(word_hashmap.len(), "placeholder");
         
         for (index, word) in word_hashmap {
             sorted_words[(index - 1) as usize] = word;
