@@ -54,3 +54,13 @@ impl Solution {
         io::stdout().flush().unwrap();
     }
 }
+
+#[cfg(test)]
+mod tests {
+    use super::*;
+
+    #[test]
+    fn test_insertion_sort() {
+        Solution::sorter(5, &mut [1, 2, 4, 5, 3]);
+    }
+}

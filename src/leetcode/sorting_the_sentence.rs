@@ -41,3 +41,15 @@ impl Solution {
         return word_hashmap;
     }
 }
+
+#[cfg(test)]
+mod tests {
+    use super::*;
+
+    #[test]
+    fn test_sort_sentence() {
+        assert_eq!(
+            Solution::sort_sentence("Myself2 Me1 I4 and3".to_string()),
+            "Me Myself and I".to_string());
+    }
+}

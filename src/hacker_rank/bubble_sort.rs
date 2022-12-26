@@ -42,3 +42,13 @@ impl Solution {
         elems[index + 1] = temp_elem;
     }
 }
+
+#[cfg(test)]
+mod tests {
+    use super::*;
+
+    #[test]
+    fn test_bubble_sort() {
+        Solution::count_swaps(&mut [6, 4, 1]);
+    }
+}

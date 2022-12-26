@@ -26,3 +26,15 @@ impl Solution {
         return count;
     }
 }
+
+#[cfg(test)]
+mod tests {
+    use super::*;
+
+    #[test]
+    fn test_smaller_numbers_than_current() {
+        assert_eq!(
+            Solution::smaller_numbers_than_current(vec![8, 1, 2, 2, 3]),
+            vec![4, 0, 1, 1, 3]);
+    }
+}

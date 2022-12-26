@@ -44,3 +44,13 @@ impl Solution {
         return frequency_arr;
     }
 }
+
+#[cfg(test)]
+mod tests {
+    use super::*;
+
+    #[test]
+    fn test_counting_sort() {
+        Solution::sorter(&[1, 1, 3, 2, 1]);
+    }
+}
