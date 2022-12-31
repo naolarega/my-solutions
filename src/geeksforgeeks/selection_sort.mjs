@@ -1,3 +1,6 @@
+import test from 'node:test';
+import assert from 'node:assert';
+
 class Solution {
     /**
      * 
@@ -25,3 +28,13 @@ class Solution {
         }
     }
 }
+
+test('Test selction sort', () => {
+    const selectionSortSolution = new Solution();
+
+    const unsortedList = [4, 1, 3, 9, 7];
+
+    selectionSortSolution.selectionSort(unsortedList, 5);
+
+    assert.deepEqual(unsortedList, [1, 3, 4, 7, 9]);
+});
