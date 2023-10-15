@@ -9,7 +9,7 @@ impl Solution {
             small_nums_count.push(Solution::count_smaller_nums(nums_slice, idx));
         }
 
-        return  small_nums_count;
+        return small_nums_count;
     }
 
     fn count_smaller_nums(nums: &[i32], idx: usize) -> i32 {
@@ -17,9 +17,8 @@ impl Solution {
         let mut count = 0;
 
         for current_idx in 0..nums.len() {
-            if (current_idx != idx &&
-                nums[current_idx] < current_num) {
-                count += 1;                
+            if current_idx != idx && nums[current_idx] < current_num {
+                count += 1;
             }
         }
 
@@ -35,6 +34,7 @@ mod tests {
     fn test_smaller_numbers_than_current() {
         assert_eq!(
             Solution::smaller_numbers_than_current(vec![8, 1, 2, 2, 3]),
-            vec![4, 0, 1, 1, 3]);
+            vec![4, 0, 1, 1, 3]
+        );
     }
 }

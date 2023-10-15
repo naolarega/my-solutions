@@ -15,7 +15,7 @@ impl Solution {
         for point in points {
             let point_coord = Point::from(point);
             let point_distance = PointDistance::new(point_coord);
-            
+
             point_distance_vec.push(point_distance);
         }
 
@@ -24,7 +24,7 @@ impl Solution {
 
     fn sort_points(mut point_distances: Vec<PointDistance>) -> Vec<Vec<i32>> {
         let point_distances_len = point_distances.len();
-        
+
         for idx_i in 0..point_distances_len {
             for idx_j in idx_i..point_distances_len {
                 if point_distances[idx_j].distance < point_distances[idx_i].distance {
@@ -47,7 +47,7 @@ impl Solution {
 #[derive(Clone, Copy)]
 struct Point {
     x: i32,
-    y: i32
+    y: i32,
 }
 
 impl From<Vec<i32>> for Point {
@@ -56,14 +56,17 @@ impl From<Vec<i32>> for Point {
             panic!("Can't be casted to Point");
         }
 
-        Self { x: point_vec[0], y: point_vec[1] }
+        Self {
+            x: point_vec[0],
+            y: point_vec[1],
+        }
     }
 }
 
 #[derive(Clone, Copy)]
 struct PointDistance {
     point: Point,
-    distance: f32
+    distance: f32,
 }
 
 impl PointDistance {
@@ -77,9 +80,7 @@ impl PointDistance {
     }
 
     fn to_vec_int(&self) -> Vec<i32> {
-        vec![
-            self.point.x,
-            self.point.y]
+        vec![self.point.x, self.point.y]
     }
 }
 
@@ -89,10 +90,10 @@ mod tests {
 
     #[test]
     fn test_k_closest() {
-        let point_vec = vec![vec![3,3], vec![5,-1], vec![-2,4]];
+        let point_vec = vec![vec![3, 3], vec![5, -1], vec![-2, 4]];
 
         let closest_points = Solution::k_closest(point_vec, 2);
 
-        assert_eq!(closest_points, vec![vec![3,3], vec![-2,4]]);
+        assert_eq!(closest_points, vec![vec![3, 3], vec![-2, 4]]);
     }
 }

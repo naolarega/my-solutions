@@ -6,15 +6,24 @@ impl Solution {
     pub fn insertion_sort() {
         let stdin = io::stdin();
         let mut stdin_iterator = stdin.lock().lines();
-    
-        let n = stdin_iterator.next().unwrap().unwrap().trim().parse::<i32>().unwrap();
-    
-        let mut arr: Vec<i32> = stdin_iterator.next().unwrap().unwrap()
+
+        let n = stdin_iterator
+            .next()
+            .unwrap()
+            .unwrap()
+            .trim()
+            .parse::<i32>()
+            .unwrap();
+
+        let mut arr: Vec<i32> = stdin_iterator
+            .next()
+            .unwrap()
+            .unwrap()
             .trim_end()
             .split(' ')
             .map(|s| s.to_string().parse::<i32>().unwrap())
             .collect();
-    
+
         Self::sorter(n, &mut arr);
     }
 
@@ -28,9 +37,9 @@ impl Solution {
                 Self::print_arr(arr);
             } else {
                 arr[idx + 1] = last_elem;
-                
+
                 Self::print_arr(arr);
-                
+
                 return;
             }
         }

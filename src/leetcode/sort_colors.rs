@@ -28,11 +28,9 @@ mod tests {
     #[test]
     fn test_sort_color() {
         let mut unsorted_colors = vec![2, 0, 2, 1, 1, 0];
-        
+
         Solution::sort_colors(&mut unsorted_colors);
 
-        assert_eq!(
-            unsorted_colors,
-            vec![0, 0, 1, 1, 2, 2]);
+        assert_eq!(unsorted_colors, vec![0, 0, 1, 1, 2, 2]);
     }
 }

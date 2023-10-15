@@ -11,7 +11,7 @@ impl Solution {
         let mut sorted_words = Vec::with_capacity(word_hashmap.len());
 
         sorted_words.resize(word_hashmap.len(), "placeholder");
-        
+
         for (index, word) in word_hashmap {
             sorted_words[(index - 1) as usize] = word;
         }
@@ -25,7 +25,7 @@ impl Solution {
         for word in words {
             let word_index = match word.chars().last() {
                 Some(index) => index,
-                _ => '0'
+                _ => '0',
             };
 
             let ref word_without_index = word[0..word.len() - 1];
@@ -33,9 +33,10 @@ impl Solution {
             word_hashmap.insert(
                 match word_index.to_digit(10) {
                     Some(index) => index,
-                    _ => 0
+                    _ => 0,
                 },
-                &word_without_index);
+                &word_without_index,
+            );
         }
 
         return word_hashmap;
@@ -50,6 +51,7 @@ mod tests {
     fn test_sort_sentence() {
         assert_eq!(
             Solution::sort_sentence("Myself2 Me1 I4 and3".to_string()),
-            "Me Myself and I".to_string());
+            "Me Myself and I".to_string()
+        );
     }
 }

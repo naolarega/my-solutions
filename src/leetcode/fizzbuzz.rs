@@ -26,9 +26,9 @@ mod tests {
 
     #[test]
     fn test_fizz_buzz() {
-        assert_eq!(Solution::fizz_buzz(3), vec![
-            "1".to_string(),
-            "2".to_string(),
-            "Fizz".to_string()]);
+        assert_eq!(
+            Solution::fizz_buzz(3),
+            vec!["1".to_string(), "2".to_string(), "Fizz".to_string()]
+        );
     }
 }

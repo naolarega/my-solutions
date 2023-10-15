@@ -43,6 +43,7 @@ mod tests {
     fn test_grading_students() {
         assert_eq!(
             Solution::grading_students(&[73, 67, 38, 33]),
-            vec![75, 67, 40, 33])
+            vec![75, 67, 40, 33]
+        )
     }
 }

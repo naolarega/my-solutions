@@ -5,7 +5,7 @@ impl Solution {
         let mut indices: Vec<i32> = Vec::new();
 
         nums.sort();
-        
+
         for (idx, num) in nums.iter().enumerate() {
             if num == &target {
                 indices.push(idx as i32);

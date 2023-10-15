@@ -16,15 +16,13 @@ impl Solution {
     fn accept_board_size() -> BoardDimension {
         let mut board_size_input = String::new();
 
-        stdin()
-            .read_line(&mut board_size_input)
-            .unwrap();
+        stdin().read_line(&mut board_size_input).unwrap();
 
         let ref mut split_board_size = board_size_input.split(" ");
 
         let length_str = split_board_size.next();
         let width_str = split_board_size.next();
-    
+
         let length = Self::parse_dimension(length_str);
         let width = Self::parse_dimension(width_str);
 
@@ -33,10 +31,7 @@ impl Solution {
 
     fn parse_dimension(dimension: Option<&str>) -> i16 {
         if let Some(dimension) = dimension {
-            let dimension: i16 = dimension
-                .trim()
-                .parse()
-                .unwrap();
+            let dimension: i16 = dimension.trim().parse().unwrap();
 
             return dimension;
         } else {
@@ -77,7 +72,7 @@ impl GameBoard {
         }
 
         let ref mut coordinate = (0, 0);
-    
+
         while self.can_fit_domino(coordinate) {
             self.dominos.push(Domino::from(*coordinate))
         }
@@ -86,12 +81,13 @@ impl GameBoard {
     }
 
     fn can_fit_domino(&self, coordinate: &mut (i16, i16)) -> bool {
-        let left_space = (self.board_dimension.length * self.board_dimension.width) - (self.dominos.len() * 2) as i16;
+        let left_space = (self.board_dimension.length * self.board_dimension.width)
+            - (self.dominos.len() * 2) as i16;
 
         if left_space >= 2 {
             coordinate.0 = 0;
             coordinate.1 = 0;
-            
+
             return true;
         }
         return false;
@@ -112,7 +108,7 @@ mod tests {
     fn test_domino_piling() {
         let mut game_board = GameBoard::new(BoardDimension {
             length: 2,
-            width: 4
+            width: 4,
         });
         assert_eq!(game_board.max_dominos(), 4);
     }
