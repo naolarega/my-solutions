@@ -1,7 +1,7 @@
 pub struct Solution;
 
 impl Solution {
-    pub fn sort_colors(nums: &mut Vec<i32>) {
+    pub fn sort_colors(nums: &mut [i32]) {
         let mut i = 0;
         let nums_len = nums.len();
 
@@ -10,9 +10,7 @@ impl Solution {
 
             while j < nums_len {
                 if nums[j] < nums[i] {
-                    let temp = nums[i];
-                    nums[i] = nums[j];
-                    nums[j] = temp;
+                    nums.swap(i, j);
                 }
                 j += 1;
             }

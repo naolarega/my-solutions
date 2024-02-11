@@ -8,10 +8,8 @@ impl Solution {
         let nums_len = nums.len();
 
         while index_one < nums_len {
-            index_two = 0;
-
             while index_two < nums_len {
-                if (&nums[index_one] + &nums[index_two]) == target && index_one != index_two {
+                if (nums[index_one] + nums[index_two]) == target && index_one != index_two {
                     return vec![index_one as i32, index_two as i32];
                 }
 
@@ -19,6 +17,7 @@ impl Solution {
             }
 
             index_one += 1;
+            index_two = 0;
         }
 
         panic!("No number adds up to target!!!");

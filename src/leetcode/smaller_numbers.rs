@@ -9,20 +9,20 @@ impl Solution {
             small_nums_count.push(Solution::count_smaller_nums(nums_slice, idx));
         }
 
-        return small_nums_count;
+        small_nums_count
     }
 
     fn count_smaller_nums(nums: &[i32], idx: usize) -> i32 {
         let current_num = nums[idx];
         let mut count = 0;
 
-        for current_idx in 0..nums.len() {
-            if current_idx != idx && nums[current_idx] < current_num {
+        for (current_idx, item) in nums.iter().enumerate() {
+            if current_idx != idx && *item < current_num {
                 count += 1;
             }
         }
 
-        return count;
+        count
     }
 }
 

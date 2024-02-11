@@ -22,7 +22,7 @@ impl Solution {
             }
         }
 
-        return rounded_grade;
+        rounded_grade
     }
 
     fn find_next_multiple(grade: &i32) -> i32 {
@@ -31,7 +31,8 @@ impl Solution {
         while next_multiple % 5 != 0 {
             next_multiple += 1;
         }
-        return next_multiple;
+
+        next_multiple
     }
 }
 

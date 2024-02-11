@@ -11,7 +11,7 @@ impl Solution {
 
         let mut fptr = File::create(env::var("OUTPUT_PATH").unwrap()).unwrap();
 
-        let n = stdin_iterator
+        _ = stdin_iterator
             .next()
             .unwrap()
             .unwrap()
@@ -50,7 +50,7 @@ impl Solution {
             frequency_arr[*elem as usize] = elem_frequency + 1;
         }
 
-        return frequency_arr;
+        frequency_arr
     }
 }
 

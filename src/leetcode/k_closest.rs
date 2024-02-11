@@ -6,7 +6,7 @@ impl Solution {
 
         let sorted_points = Self::sort_points(parsed_points);
 
-        return sorted_points[0..k as usize].to_vec();
+        sorted_points[0..k as usize].to_vec()
     }
 
     fn parse_points(points: Vec<Vec<i32>>) -> Vec<PointDistance> {
@@ -19,7 +19,7 @@ impl Solution {
             point_distance_vec.push(point_distance);
         }
 
-        return point_distance_vec;
+        point_distance_vec
     }
 
     fn sort_points(mut point_distances: Vec<PointDistance>) -> Vec<Vec<i32>> {
@@ -28,9 +28,7 @@ impl Solution {
         for idx_i in 0..point_distances_len {
             for idx_j in idx_i..point_distances_len {
                 if point_distances[idx_j].distance < point_distances[idx_i].distance {
-                    let temp_point_distance = point_distances[idx_j];
-                    point_distances[idx_j] = point_distances[idx_i];
-                    point_distances[idx_i] = temp_point_distance;
+                    point_distances.swap(idx_j, idx_i);
                 }
             }
         }
@@ -40,7 +38,8 @@ impl Solution {
         for point_distance in point_distances.iter() {
             point_vec.push(point_distance.to_vec_int());
         }
-        return point_vec;
+
+        point_vec
     }
 }
 
@@ -71,15 +70,15 @@ struct PointDistance {
 
 impl PointDistance {
     fn new(point: Point) -> Self {
-        let x_squared = (point.x - 0).pow(2);
-        let y_squared = (point.y - 0).pow(2);
+        let x_squared = point.x.pow(2);
+        let y_squared = point.y.pow(2);
 
         let distance = ((x_squared + y_squared) as f32).sqrt();
 
         Self { point, distance }
     }
 
-    fn to_vec_int(&self) -> Vec<i32> {
+    fn to_vec_int(self) -> Vec<i32> {
         vec![self.point.x, self.point.y]
     }
 }

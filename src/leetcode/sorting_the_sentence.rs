@@ -4,7 +4,7 @@ pub struct Solution;
 
 impl Solution {
     pub fn sort_sentence(s: String) -> String {
-        let words = s.split(" ");
+        let words = s.split(' ');
 
         let word_hashmap = Self::to_word_hashmap(words);
 
@@ -16,10 +16,10 @@ impl Solution {
             sorted_words[(index - 1) as usize] = word;
         }
 
-        return sorted_words.join(" ").to_string();
+        sorted_words.join(" ").to_string()
     }
 
-    fn to_word_hashmap<'a>(words: Split<'a, &str>) -> HashMap<u32, &'a str> {
+    fn to_word_hashmap(words: Split<char>) -> HashMap<u32, &str> {
         let mut word_hashmap: HashMap<u32, &str> = HashMap::new();
 
         for word in words {
@@ -28,18 +28,18 @@ impl Solution {
                 _ => '0',
             };
 
-            let ref word_without_index = word[0..word.len() - 1];
+            let word_without_index = &word[0..word.len() - 1];
 
             word_hashmap.insert(
                 match word_index.to_digit(10) {
                     Some(index) => index,
                     _ => 0,
                 },
-                &word_without_index,
+                word_without_index,
             );
         }
 
-        return word_hashmap;
+        word_hashmap
     }
 }
 

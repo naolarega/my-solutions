@@ -52,11 +52,11 @@ impl Solution {
     fn print_arr(arr: &[i32]) {
         let arr_len = arr.len();
 
-        for idx in 0..arr_len {
+        for (idx, item) in arr.iter().enumerate().take(arr_len) {
             if idx < arr_len - 1 {
-                print!("{} ", arr[idx]);
+                print!("{} ", item);
             } else {
-                print!("{}\n", arr[idx])
+                println!("{}\n", item)
             }
         }
 

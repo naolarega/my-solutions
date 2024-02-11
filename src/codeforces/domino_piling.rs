@@ -18,7 +18,7 @@ impl Solution {
 
         stdin().read_line(&mut board_size_input).unwrap();
 
-        let ref mut split_board_size = board_size_input.split(" ");
+        let mut split_board_size = board_size_input.split(' ');
 
         let length_str = split_board_size.next();
         let width_str = split_board_size.next();
@@ -31,12 +31,10 @@ impl Solution {
 
     fn parse_dimension(dimension: Option<&str>) -> i16 {
         if let Some(dimension) = dimension {
-            let dimension: i16 = dimension.trim().parse().unwrap();
-
-            return dimension;
-        } else {
-            return 0;
+            return dimension.trim().parse().unwrap();
         }
+
+        0
     }
 }
 
@@ -71,13 +69,13 @@ impl GameBoard {
             panic!("board dimensions are not valid!");
         }
 
-        let ref mut coordinate = (0, 0);
+        let coordinate = &mut (0, 0);
 
         while self.can_fit_domino(coordinate) {
             self.dominos.push(Domino::from(*coordinate))
         }
 
-        return self.dominos.len() as i16;
+        self.dominos.len() as i16
     }
 
     fn can_fit_domino(&self, coordinate: &mut (i16, i16)) -> bool {
@@ -90,7 +88,8 @@ impl GameBoard {
 
             return true;
         }
-        return false;
+
+        false
     }
 
     fn board_valid(&self) -> bool {

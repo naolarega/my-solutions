@@ -23,10 +23,10 @@ impl Solution {
             }
         }
 
-        return merged_intervals;
+        merged_intervals
     }
 
-    fn is_overlaping(interval_one: &Vec<i32>, interval_two: &Vec<i32>) -> Option<Vec<i32>> {
+    fn is_overlaping(interval_one: &[i32], interval_two: &[i32]) -> Option<Vec<i32>> {
         if interval_one[0] <= interval_two[1] && interval_two[0] <= interval_one[1] {
             let mut merged_interval = vec![0, 0];
 

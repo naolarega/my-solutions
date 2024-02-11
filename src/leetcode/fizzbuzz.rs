@@ -16,7 +16,7 @@ impl Solution {
             }
         }
 
-        return fizz_buzzes;
+        fizz_buzzes
     }
 }
 

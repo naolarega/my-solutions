@@ -12,7 +12,7 @@ impl Solution {
             }
         }
 
-        return indices;
+        indices
     }
 }
 
